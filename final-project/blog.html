@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="nav-bar.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cari Drinks Coffee</title>
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+<link href="css/nav-bar.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+@font-face{
+font-family: "Font Family 1";
+src: url(./assets/fonts/Caprasimo-Regular.ttf) format("truetype");
+}
+
+h2{
+font-family: "font family 1";
+font-size: 60px;
+color: burlywood;
+padding-left: 430px;
+}
+
+h3{
+font-family: "font family 1";
+font-size: 60px;
+color: burlywood;
+padding-left: 430px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+#scrollable-text {
+      max-width: 70%;
+      color:antiquewhite;
+      padding-left: 16%;
+      letter-spacing: 1px;
+      line-height: 3.5;
+
+    }
+    #scrollable-text > p {
+      max-height: 75vh;
+      overflow-y: scroll;
+      font-size: 18px;
+    }
+
+</style>
+</head>
+
+<body>
+    <a class="social-icon" href="https://www.facebook.com/" target="_blank">
+
+        <ion-icon size="large" name="logo-facebook"></ion-icon>
+    </a>
+
+    <a class="social-icon" href="https://www.instagram.com/caridrinkscoffee/" target="_blank">
+
+        <ion-icon size="large" name="logo-instagram"></ion-icon>
+    </a>
+  
+    <header>
+        <div class="container">
+            <img src="assets/images/Coffee Logo 2.png" alt="logo" class="logo">
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="anatomy.html">COFFEE ANATOMY</a></li>
+                    <li><a href="local_spots.html">LOCAL SPOTS</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+                <h2>Blog</h2>
+            </nav>
+        </div>
+
+    </header>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext"></div>
+          <img src="assets/images/blog_1.png" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext"></div>
+          <img src="assets/images/blog_2.png" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext"></div>
+          <img src="assets/images/blog_3.png" style="width:100%">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+
+<h3>All About Caffeine </h3>
+
+<div id="scrollable-text">
+    <p>Let’s talk about caffeine! If you’re a coffee enthusiast, this little molecule is probably a significant part of your life. 
+
+        But do you know how much caffeine is in your cup of coffee, and how it can impact your health? This comprehensive guide will 
+
+        take you on a journey from the coffee plantations to your cup, exploring the factors that determine the caffeine content in 
+
+        your coffee, and how it affects your body. We’ll also discuss the health concerns associated with caffeine and the recommendations 
+
+        provided by esteemed organizations like the World Health Organisation (WHO) and the Food and Drug Administration (FDA). What is caffeine? 
+
+        Caffeine is a natural stimulant most commonly found in tea, coffee, and cacao plants. It works its magic by stimulating the brain and 
+
+        central nervous system, helping you stay alert and preventing the onset of tiredness. But it isn’t just about banishing the morning brain 
+
+        fog; caffeine also has profound effects on various other aspects of your health, including mood, metabolic rate, and physical and mental 
+
+        performance. How does caffeine affect your body? Once consumed, it is rapidly absorbed in the gut and distributed throughout the body’s 
+
+        tissues. It makes its way to the liver, where it is metabolized and broken down into compounds that can affect various organ systems. 
+
+        It operates primarily by blocking the action of a neurotransmitter called adenosine. By doing so, it reduces fatigue and makes us feel 
+
+        more alert. Once you’ve taken that satisfying sip of your coffee, caffeine begins its journey, hitching a ride with your bloodstream in 
+
+        as little as 15 to 45 minutes. You’ll feel its peak prowess about an hour after consumption, making you the most alert version of yourself. 
+
+        However, just like all good things, the buzz of caffeine doesn’t last forever. It hangs around in your blood anywhere from a brief 1.5 hours 
+
+        to a lengthy 9.5 hours. This can depend on a myriad of factors, like your personal metabolic rate and the amount of caffeine you’ve consumed. 
+
+        Research shows the half-life of caffeine in the human body is approximately of 5 hours. This means that if you have a cup of coffee containing 
+
+        100 mg of caffeine at 7 a.m., about 50 mg will still be in your system at noon. But remember, everyone is unique, and numerous factors can 
+
+        influence how quickly your body metabolizes caffeine. These factors include your age, gender, body mass, and even genetics. Lifestyle factors, 
+
+        such as smoking, can also impact caffeine metabolism. -The Way To Coffee
+      </p>
+  </div>
+</body>
+
+</html>
